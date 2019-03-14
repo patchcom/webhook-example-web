@@ -2,13 +2,13 @@
 # @Author: Aniket Maithani
 # @Date:   2019-03-14 13:07:30
 # @Last Modified by:   Aniket Maithani
-# @Last Modified time: 2019-03-14 13:22:35
+# @Last Modified time: 2019-03-14 13:30:47
 from django.db import models
 
 
 class WebhookData(models.Model):
-    startedAt = models.DateTimeField(auto_now=False)
-    endedAt = models.DateTimeField(auto_now=False)
+    started_at = models.DateTimeField(auto_now=False)
+    ended_at = models.DateTimeField(auto_now=False)
     duration = models.IntegerField()
     cost = models.IntegerField()
     context = models.CharField(blank=True, null=True, help_text='Call Context',
@@ -33,9 +33,9 @@ class WebhookData(models.Model):
     recording_file_name = models.CharField(blank=True, null=True, help_text='Recording File Name',
                                            max_length=300)
 
-    def __str__(self):
-        return "{} {}".format(self.from_phone, self.from_name)
-
     class Meta:
         verbose_name = 'Webhook-Data for Call'
         verbose_name_plural = 'Webhook-Data for Calls'
+
+    def __str__(self):
+        return "{} {}".format(self.from_phone, self.from_name)

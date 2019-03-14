@@ -95,7 +95,7 @@
 - The app contains the test suite as well. 
 - Contains sample test for the function and integration tests as well
 
-## FOR PRODUCTION : In case you want to use this app in production make sure you have prod related dependencies installed and your keys and secrets are in an `.env` file. 
+### FOR PRODUCTION : In case you want to use this app in production make sure you have prod related dependencies installed and your keys and secrets are in an `.env` file. 
 
 
-# GOLDEN RULE : ANYTHING IN MASTER SHOULD BE ALWAYS DEPLOYABLE
+### GOLDEN RULE : ANYTHING IN MASTER SHOULD BE ALWAYS DEPLOYABLE

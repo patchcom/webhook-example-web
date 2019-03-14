@@ -2,7 +2,7 @@
 # @Author: Aniket Maithani
 # @Date:   2019-03-14 13:43:05
 # @Last Modified by:   Aniket Maithani
-# @Last Modified time: 2019-03-14 14:39:41
+# @Last Modified time: 2019-03-14 17:24:11
 # Third Party Stuff
 import json
 from .serializer import WebhookSerializer
@@ -21,14 +21,13 @@ class WebhookViewSet(generics.CreateAPIView):
     permission_classes = (AllowAny, )
     serializer_class = WebhookSerializer
 
-    def post(self, request, format=None):
-        startedAt = convert_iso_date_to_python_datetime(
-            request.data['startedAt'])
-        endedAt = convert_iso_date_to_python_datetime(request.data['endedAt'])
-        converted_data = {'startedAt': startedAt,
-                          'endedAt': endedAt,
-                          'from_cc': request.data['from']['cc'],
-                          'from_phone': request.data['from']['phone'],
+    def post(self, request):
+        started_at = convert_iso_date_to_python_datetime(request.data['startedAt'])
+        ended_at = convert_iso_date_to_python_datetime(request.data['endedAt'])
+        converted_data = {"startedAt": started_at,
+                          "endedAt": ended_at,
+                          "from_cc": request.data['from']['cc'],
+                          "from_phone": request.data["from"]["phone"],
                           'from_name': request.data['from']['name'],
                           'call_type': request.data['type'],
                           'call_status': request.data['status'],

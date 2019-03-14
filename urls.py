@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from webhook.api import WebhookViewSet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/callback_url/', WebhookViewSet.as_view(), name='Webhook View')
 ]

@@ -2,13 +2,13 @@
 # @Author: Aniket Maithani
 # @Date:   2019-03-14 13:07:30
 # @Last Modified by:   Aniket Maithani
-# @Last Modified time: 2019-03-14 13:30:47
+# @Last Modified time: 2019-03-14 14:29:06
 from django.db import models
 
 
 class WebhookData(models.Model):
-    started_at = models.DateTimeField(auto_now=False)
-    ended_at = models.DateTimeField(auto_now=False)
+    startedAt = models.DateTimeField(auto_now=False)
+    endedAt = models.DateTimeField(auto_now=False)
     duration = models.IntegerField()
     cost = models.IntegerField()
     context = models.CharField(blank=True, null=True, help_text='Call Context',
@@ -23,7 +23,8 @@ class WebhookData(models.Model):
                                  max_length=300)
     call_status = models.CharField(blank=True, null=True, help_text='Status of Call',
                                    max_length=300)
-    call_leg_data = models.TextField(help_text='Data of Call Legs')
+    legs = models.CharField(help_text='Data of Call Legs', null=True, blank=False,
+                            max_length=1024)
     webhook_url = models.CharField(blank=True, null=True, help_text='Webhook Url',
                                    max_length=300)
     callee_info_cc = models.CharField(blank=True, null=True, help_text='cc of callee',
